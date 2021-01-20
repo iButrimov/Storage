@@ -2,13 +2,12 @@ package com.example.storage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Toast
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.example.storage.databinding.ActivityMainBinding
 import java.io.File
-import java.io.OutputStreamWriter
 import java.lang.Exception
 import kotlin.concurrent.thread
 
@@ -76,7 +75,51 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        fun isExternalStorageWritable(): Boolean {
+            val state: String  = Environment.getExternalStorageState()
+            return Environment.MEDIA_MOUNTED == state
+        }
 
+        fun isExternalStorageReadable(): Boolean {
+            val state: String  = Environment.getExternalStorageState()
+            return ((Environment.MEDIA_MOUNTED == state) || (Environment.MEDIA_MOUNTED_READ_ONLY == state))
+        }
+
+        //val filePath = Environment.DIRECTORY_DOCUMENTS
+        //val filePath = "MyExternalFileDir"
+        val filePath = "/storage/1AE9-2B0C/Documents"
+        val fileName = "MyExternalFile.txt"
+
+        binding.buttonSaveExternal.setOnClickListener {
+            try {
+                if (isExternalStorageWritable()) {
+                    val myExternalFile = File(filePath, fileName)
+                    val outputStream = myExternalFile.outputStream()
+                    outputStream.write(str.toString().toByteArray())
+                    outputStream.close()
+                    //val outputStream = openFileOutput("externalFile", MODE_PRIVATE)
+                }
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+            }
+            toastSaved()
+            str.clear()
+        }
+
+        binding.buttonLoadExternal.setOnClickListener {
+            try {
+                if (isExternalStorageReadable()) {
+                val myExternalFile = File(filePath, fileName)
+                //val myExternalFile = File(getExternalFilesDir(filePath), fileName)
+                val inputSystem = myExternalFile.inputStream()
+                binding.text.text = inputSystem.readBytes().decodeToString()
+                inputSystem.close()
+                }
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+            }
+            toastLoaded()
+        }
 
 
         val db = Room.databaseBuilder(this, MyMessagesDataBase::class.java, "database")

@@ -36,7 +36,7 @@
     <Button
         android:id="@+id/button_save_to_prefs"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Save to prefs"
@@ -48,7 +48,7 @@
     <Button
         android:id="@+id/button_load_from_prefs"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:text="Load from prefs"
@@ -60,7 +60,7 @@
     <Button
         android:id="@+id/button_save_internal"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Save internal"
@@ -72,7 +72,7 @@
     <Button
         android:id="@+id/button_load_internal"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:text="Load internal"
@@ -84,7 +84,7 @@
     <Button
         android:id="@+id/button_save_external"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Save external"
@@ -96,7 +96,7 @@
     <Button
         android:id="@+id/button_load_external"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:text="Load external"
@@ -108,7 +108,7 @@
     <Button
         android:id="@+id/button_save_to_DB"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Save to DB"
@@ -120,7 +120,7 @@
     <Button
         android:id="@+id/button_load_from_DB"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:text="Load from DB"
